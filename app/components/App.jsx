@@ -2,30 +2,33 @@
 import React, { Component } from 'react';
 import reactMixin from 'react-mixin';
 
-import { Users } from 'collections/users';
+import Tasks from 'collections/tasks';
+
+import TaskList from './TaskList';
+import TaskInput from './TaskInput';
 
 @reactMixin.decorate(ReactMeteorData)
 export default class App extends Component {
   getMeteorData() {
-    Meteor.subscribe('users');
+    Meteor.subscribe('tasks');
 
     return {
-      users: Users.find().fetch()
+      tasks: Tasks.find({userId: Meteor.userId()}).fetch()
     };
   }
 
-
   render() {
-    const { users } = this.data;
+    const { tasks } = this.data;
 
-    if (!users) {
+    if (!tasks) {
       return <div>Loading</div>;
     }
 
     return (
       <div className="App">
-        <h1>Hello World!</h1>
-        <p>Users: {this.data.users.length}</p>
+        <h1>Your tasks</h1>
+        <TaskList tasks={tasks} />
+        <TaskInput />
       </div>
     );
   }
