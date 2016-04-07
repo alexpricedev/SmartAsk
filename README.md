@@ -1,7 +1,7 @@
 # SmartAsk
 
 SmartAsk is a simple app for exporting the responses your event attendees
-leave when they sign up to your (Meetup.com)[http://meetup.com/] events.
+leave when they sign up to your [Meetup.com](http://meetup.com/) events.
 
 It allows you to view the attendees in the application or export the data
 as a `.CSV`.
