@@ -15,7 +15,7 @@ export default class MemberAnswers extends React.Component {
         { this.props.answers.map((answer, i) =>
           <span key={i}>
             <dt style={{fontWeight: '700'}}>{answer.question}</dt>
-            <dd style={{margin: '0'}}>{answer.answer}</dd>
+            <dd style={{margin: '0'}}>{answer.answer || 'Not given'}</dd>
           </span>
         ) }
       </dl>
