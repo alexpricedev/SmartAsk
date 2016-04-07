@@ -50,7 +50,7 @@ export default class App extends Component {
 
     return (
       <div className="App">
-        <h1>Meetup Event Responses</h1>
+        <h1>SmartAsk - Meetup.com Event Responses</h1>
         <MeetupDetailInputs getMeetupData={this.getMeetupData} />
 
         {body}
