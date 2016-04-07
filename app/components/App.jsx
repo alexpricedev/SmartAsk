@@ -1,34 +1,59 @@
-/* global Meteor, ReactMeteorData */
+/* global Meteor */
 import React, { Component } from 'react';
-import reactMixin from 'react-mixin';
 
-import Tasks from 'collections/tasks';
+import MeetupTable from './MeetupTable';
+import MeetupDetailInputs from './MeetupDetailInputs';
+import ExportButton from './ExportButton';
 
-import TaskList from './TaskList';
-import TaskInput from './TaskInput';
-
-@reactMixin.decorate(ReactMeteorData)
 export default class App extends Component {
-  getMeteorData() {
-    Meteor.subscribe('tasks');
+  state = {
+    members: [],
+    loading: false
+  };
 
-    return {
-      tasks: Tasks.find({userId: Meteor.userId()}).fetch()
-    };
+  getMeetupData = (data) => {
+    this.setState({loading: true});
+
+    Meteor.call('meetup_members', data, (err, res) => {
+      if (err) {
+        // eslint-disable-next-line
+        alert(err);
+      } else {
+        this.setState({
+          members: res,
+          loading: false
+        });
+      }
+    });
   }
 
   render() {
-    const { tasks } = this.data;
+    const { members, loading } = this.state;
+    let body;
 
-    if (!tasks) {
-      return <div>Loading</div>;
+    if (loading) {
+      body = (
+        <div>
+          Loading...
+        </div>
+      );
+    } else if (members.length > 0) {
+      body = (
+        <div>
+          <hr/>
+
+          <ExportButton data={members} />
+          <MeetupTable members={members} />
+        </div>
+      );
     }
 
     return (
       <div className="App">
-        <h1>Your tasks</h1>
-        <TaskList tasks={tasks} />
-        <TaskInput />
+        <h1>Meetup Event Responses</h1>
+        <MeetupDetailInputs getMeetupData={this.getMeetupData} />
+
+        {body}
       </div>
     );
   }
