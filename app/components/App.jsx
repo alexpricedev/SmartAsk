@@ -42,12 +42,10 @@ export default class App extends Component {
       );
     } else if (members.length > 0) {
       body = (
-        <div>
-          <hr/>
-
+        <section className="results">
           <ExportButton data={members} />
           <MeetupTable members={members} />
-        </div>
+        </section>
       );
     }
 

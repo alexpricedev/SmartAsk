@@ -3,14 +3,12 @@ import React from 'react';
 import MeetupTableRow from './MeetupTableRow';
 
 const MeetupTable = props => (
-  <table>
-    <thead>
-      <tr style={{textAlign: 'left'}}>
-        <th>Name</th>
-        <th style={{padding: '10px'}}>
-          Image
-        </th>
-        <th>Questions and Answers</th>
+  <table className="table">
+    <thead className="table-header">
+      <tr className="table-row">
+        <th className="table-row-cell">Name</th>
+        <th className="table-row-cell mod-hide-small">Image</th>
+        <th className="table-row-cell">Questions and answers</th>
       </tr>
     </thead>
     <tbody>

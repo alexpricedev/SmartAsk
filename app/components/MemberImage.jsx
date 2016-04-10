@@ -7,12 +7,12 @@ export default class MemberImage extends React.Component {
 
   render() {
     if (!this.props.member.photo) {
-      return <img src="http://ima.gs/f2f2f2/000000/f2f2f2/80x80.png"></img>;
+      return <img src="http://ima.gs/ffffff/282828/ffffff/80x80.png"></img>;
     }
 
     return (
       <img src={this.props.member.photo.thumb_link}
-           style={{padding: '10px'}}
+           className="user-image"
            alt={`Photo of ${this.props.member.name}`}></img>
     );
   }

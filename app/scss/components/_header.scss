@@ -12,7 +12,7 @@
 .header::after {
     border-color: transparent transparent transparent $red;
     border-style: solid;
-    border-width: 40px 0 0 100vw;
+    border-width: 40px 0 0 calc(100vw - 15px);
     bottom: 0;
     content: '';
     height: 0;
@@ -25,7 +25,7 @@
         height: auto;
         width: 80%;
 
-        @include break(small) {
+        @include break() {
             width: 500px;
         }
     }

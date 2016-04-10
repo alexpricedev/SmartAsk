@@ -19,19 +19,9 @@ export default class ExportButton extends React.Component {
       return <span></span>;
     }
 
-    const styles = {
-      background: 'black',
-      color: 'white',
-      padding: '10px',
-      borderRadius: '3px',
-      textDecoration: 'none',
-      margin: '0 0 10px',
-      display: 'inline-block'
-    };
-
     return (
       <a href="#"
-         style={styles}
+         className="button mod-red"
          onClick={this.exportCSV}>
         Export as Speadsheet
       </a>

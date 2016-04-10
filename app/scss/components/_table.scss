@@ -1,0 +1,35 @@
+// ==============================================
+// Table component styles
+// ==============================================
+
+.table {
+    margin: 20px;
+    width: calc(100% - 40px);
+}
+
+    .table-header {
+        background: $black;
+        color: $white;
+    }
+
+    .table-row {
+        border-bottom: 2px solid $black;
+        text-align: left;
+
+        &:last-of-type {
+            border-bottom: 0;
+        }
+    }
+
+        .table-row-cell {
+            font-weight: 400;
+            padding: 20px;
+        }
+
+        .table-row-cell.mod-hide-small {
+            display: none;
+
+            @include break() {
+                display: table-cell;
+            }
+        }

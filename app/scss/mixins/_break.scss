@@ -2,7 +2,7 @@
 //  Responsive mixin
 // ==============================================
 
-@mixin break($size) {
+@mixin break($size: small) {
     @if $size == small {
         @media only screen and (min-width: $small) {
             @content;

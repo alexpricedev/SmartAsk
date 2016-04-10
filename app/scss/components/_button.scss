@@ -7,10 +7,11 @@
     border: 0;
     border-radius: 99px;
     color: $white;
-    display: block;
+    display: inline-block;
     font-size: 18px;
     margin: 0 auto;
     padding: 14px 50px;
+    text-decoration: none;
     transition: padding 0.1s ease-in;
 }
 
@@ -18,4 +19,8 @@
 .button:focus {
     padding-left: 70px;
     padding-right: 70px;
+}
+
+.button.mod-red {
+    background: $red;
 }

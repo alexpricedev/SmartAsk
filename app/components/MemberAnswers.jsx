@@ -6,16 +6,16 @@ export default class MemberAnswers extends React.Component {
   };
 
   render() {
-    if (!this.props.answers) {
-      return <div>No answers given</div>;
-    }
-
     return (
-      <dl>
+      <dl className="answers">
         { this.props.answers.map((answer, i) =>
           <span key={i}>
-            <dt style={{fontWeight: '700'}}>{answer.question}</dt>
-            <dd style={{margin: '0'}}>{answer.answer || 'Not given'}</dd>
+            <dt className="answers-question">
+              {answer.question}
+            </dt>
+            <dd className="answers-answer">
+              {answer.answer || 'Not given'}
+            </dd>
           </span>
         ) }
       </dl>

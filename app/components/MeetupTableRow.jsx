@@ -4,12 +4,14 @@ import MemberImage from './MemberImage';
 import MemberAnswers from './MemberAnswers';
 
 const MeetupTableRow = props => (
-  <tr>
-    <td>{props.data.member.name}</td>
-    <td>
+  <tr className="table-row">
+    <td className="table-row-cell">
+      {props.data.member.name}
+    </td>
+    <td className="table-row-cell mod-hide-small">
       <MemberImage member={props.data.member} />
     </td>
-    <td>
+    <td className="table-row-cell">
       <MemberAnswers answers={props.data.answers} />
     </td>
   </tr>
