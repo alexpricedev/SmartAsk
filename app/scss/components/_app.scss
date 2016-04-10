@@ -1,0 +1,18 @@
+// ==============================================
+// App styles
+// ==============================================
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    background: $red;
+    font-family: 'Lato', sans-serif;
+}

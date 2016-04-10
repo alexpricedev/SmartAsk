@@ -1,0 +1,16 @@
+// ==============================================
+//  Responsive mixin
+// ==============================================
+
+@mixin break($size) {
+    @if $size == small {
+        @media only screen and (min-width: $small) {
+            @content;
+        }
+    } @else {
+        @media only screen and (min-width: $size) {
+            @content;
+        }
+    }
+}
+

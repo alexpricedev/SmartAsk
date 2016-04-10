@@ -1,0 +1,31 @@
+// ==============================================
+// Form input styles
+// ==============================================
+
+.label {
+    color: $white;
+    display: block;
+    font-size: 20px;
+    padding: 0 0 10px;
+    text-align: center;
+}
+
+.input {
+    border: 0;
+    border-bottom: 2px solid $black;
+    border-radius: 99px;
+    display: block;
+    margin: 0 0 20px;
+    outline: 0;
+    padding: 18px 30px;
+    position: relative;
+    text-align: center;
+    transition: all 0.2s ease-in;
+    width: 100%;
+}
+
+.input:focus {
+    background: $black;
+    border-bottom-color: transparent;
+    color: $white;
+}

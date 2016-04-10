@@ -23,28 +23,41 @@ export default class MeetupDetailInputs extends React.Component {
   }
 
   render() {
-    const style = {
-      width: '300px'
-    };
-
     return (
-      <form onSubmit={this.submitForm}>
+      <form className="form"
+            onSubmit={this.submitForm}>
+
+        <label htmlForm="event_name"
+               className="label">
+          Your event name
+        </label>
+
         <input type="text"
-               style={style}
+               className="input"
                id="event_name"
-               placeholder="Event name (ie. Bristol-Business-Brainstorm)" />
+               placeholder="Enter your event name (ie. Bristol-Business-Brainstorm)" />
+
+        <label htmlForm="event_id"
+               className="label">
+          Your event ID
+        </label>
 
         <input type="text"
-               style={style}
+               className="input"
                id="event_id"
-               placeholder="Event id (ie. 229574982)" />
+               placeholder="Enter your event id number (ie. 229574982)" />
+
+        <label htmlForm="api_key"
+               className="label">
+          Your Meetup API key
+        </label>
 
         <input type="text"
-               style={style}
+               className="input"
                id="api_key"
                placeholder="Your 29 character API key" />
 
-        <button>Submit</button>
+        <button className="button">View responses</button>
       </form>
     );
   }
