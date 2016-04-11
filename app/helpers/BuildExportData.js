@@ -22,7 +22,7 @@ export default function BuildExportData(data) {
 
 function _buildQuestionData(data) {
   if (data.answers) {
-    const answerData = {};
+    let answerData = {};
 
     data.answers.forEach((question) => {
       answerData[question.question] = question.answer;

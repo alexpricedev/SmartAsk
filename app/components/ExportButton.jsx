@@ -15,15 +15,11 @@ export default class ExportButton extends React.Component {
   }
 
   render() {
-    if (this.props.data.length === 0) {
-      return <span></span>;
-    }
-
     return (
       <a href="#"
          className="button mod-red"
          onClick={this.exportCSV}>
-        Export as Speadsheet
+        Export to .CSV
       </a>
     );
   }

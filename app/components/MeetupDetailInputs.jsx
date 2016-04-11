@@ -2,6 +2,7 @@ import React from 'react';
 
 export default class MeetupDetailInputs extends React.Component {
   static propTypes = {
+    loading: React.PropTypes.bool.isRequired,
     getMeetupData: React.PropTypes.func.isRequired
   };
 
@@ -23,6 +24,8 @@ export default class MeetupDetailInputs extends React.Component {
   }
 
   render() {
+    const { loading } = this.props;
+
     return (
       <form className="form"
             onSubmit={this.submitForm}>
@@ -57,7 +60,10 @@ export default class MeetupDetailInputs extends React.Component {
                id="api_key"
                placeholder="Your 29 character API key" />
 
-        <button className="button">View responses</button>
+        <button className="button">
+          { loading && 'Loading...' }
+          { !loading && 'View responses' }
+        </button>
       </form>
     );
   }

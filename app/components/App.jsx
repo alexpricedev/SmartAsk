@@ -32,29 +32,21 @@ export default class App extends Component {
 
   render() {
     const { members, loading } = this.state;
-    let body;
-
-    if (loading) {
-      body = (
-        <div>
-          Loading...
-        </div>
-      );
-    } else if (members.length > 0) {
-      body = (
-        <section className="results">
-          <ExportButton data={members} />
-          <MeetupTable members={members} />
-        </section>
-      );
-    }
 
     return (
       <div className="app">
         <Header />
-        <MeetupDetailInputs getMeetupData={this.getMeetupData} />
 
-        {body}
+        <MeetupDetailInputs
+          loading={loading}
+          getMeetupData={this.getMeetupData} />
+
+        { !loading && members.length > 0 &&
+          <section className="results">
+            <ExportButton data={members} />
+            <MeetupTable members={members} />
+          </section>
+        }
       </div>
     );
   }
