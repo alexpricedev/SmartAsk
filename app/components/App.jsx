@@ -104,15 +104,14 @@ export default class App extends Component {
         }
       });
     });
-
-    this.setState({loading: false});
   }
 
   resetResponses = (event) => {
     event.preventDefault();
 
     this.setState({
-      responses: []
+      responses: [],
+      loading: false
     });
   }
 

@@ -28,17 +28,19 @@ export default class MeetupGroupsInput extends React.Component {
 
         <label htmlForm="group"
                className="label">
-          Select a group
+          Choose one of your groups
         </label>
 
-        <select id="group">
-          <option value="0">Select a group</option>
-          { groups.map((group, i) =>
-            <option key={i} value={group.urlname}>
-              {group.name}
-            </option>
-          ) }
-        </select>
+        <span className="select">
+          <select className="select-input" id="group">
+            <option value="0">Select a group</option>
+            { groups.map((group, i) =>
+              <option key={i} value={group.urlname}>
+                {group.name}
+              </option>
+            ) }
+          </select>
+        </span>
 
         <button className="button">
           { loading && 'Loading...' }

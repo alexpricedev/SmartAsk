@@ -2,6 +2,8 @@ import React from 'react';
 import update from 'react-addons-update';
 import _ from 'lodash';
 
+import secondsToDateString from 'helpers/datetime';
+
 export default class MeetupEventsInput extends React.Component {
   static propTypes = {
     loading: React.PropTypes.bool.isRequired,
@@ -56,14 +58,26 @@ export default class MeetupEventsInput extends React.Component {
         </label>
 
         { events.map((event, i) =>
-          <span key={i}>
-            <input type="checkbox"
-                   name="events"
-                   onChange={this.onChange}
-                   value={event.id} />
-            {event.name} | {event.time}<br />
-          </span>
+          <div className="checkbox" key={i}>
+            <label htmlFor={`event-${i}`}>
+              <span className="checkbox-input">
+                <input type="checkbox"
+                       id={`event-${i}`}
+                       name="events"
+                       onChange={this.onChange}
+                       value={event.id} />
+              </span>
+              <span className="checkbox-text">
+                {event.name}
+              </span>
+              <span className="checkbox-date">
+                {secondsToDateString(event.time)}
+              </span>
+            </label>
+          </div>
         ) }
+
+        <br />
 
         <button className="button">
           { loading && 'Loading...' }

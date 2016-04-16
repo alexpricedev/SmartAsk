@@ -1,0 +1,54 @@
+// ==============================================
+// Checkbox input styles
+// ==============================================
+
+.checkbox {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 38px;
+    margin: 0 0 5px;
+
+    &:first-of-type {
+        margin-top: 20px;
+    }
+
+    &:last-of-type {
+        margin-bottom: 20px;
+    }
+}
+
+.checkbox:hover {
+    .checkbox-input,
+    .checkbox-text,
+    .checkbox-date {
+        background: $orange;
+        border-color: lighten($orange, 10%);
+        color: $white;
+    }
+}
+
+    %checkbox-styles {
+        background: $white;
+        border-right: 1px solid darken($white, 10%);
+        cursor: pointer;
+        display: inline-block;
+        height: 40px;
+        transition: all 0.2s ease;
+    }
+
+    .checkbox-input {
+        @extend %checkbox-styles;
+        border-radius: 3px 0 0 3px;
+        width: 40px;
+    }
+
+    .checkbox-text {
+        @extend %checkbox-styles;
+        padding: 0 10px;
+    }
+
+    .checkbox-date {
+        @extend %checkbox-styles;
+        border-radius: 0 3px 3px 0;
+        padding: 0 10px;
+    }

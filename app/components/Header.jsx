@@ -4,9 +4,12 @@ import logo from 'images/logo.svg';
 
 const Header = () => (
   <header className="header">
-    <img className="header-logo"
-         src={logo}
-         alt="SmartAsk" />
+    <a href="/"
+       title="Go home">
+      <img className="header-logo"
+           src={logo}
+           alt="SmartAsk" />
+    </a>
   </header>
 );
 
