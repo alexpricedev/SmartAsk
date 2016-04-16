@@ -26,10 +26,16 @@
     background: $orange;
 }
 
-.button.mod-red {
-    background: $red;
+.button.mod-white {
+    background: $white;
+    color: $red;
 }
 
-.button.mod-red:focus {
+.button.mod-white:focus {
     background: $orange;
+    color: $white;
+}
+
+.button + .button {
+    margin-left: 20px;
 }

@@ -33,6 +33,7 @@
     "null-loader": "^0.1.1",
     "progress-bar-webpack-plugin": "^1.5.0",
     "react-addons-test-utils": "^0.14.7",
+    "react-addons-update": "^0.14.8",
     "react-transform-catch-errors": "^1.0.0",
     "redbox-react": "^1.0.1",
     "regenerator": "^0.8.36",

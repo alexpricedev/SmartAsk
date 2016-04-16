@@ -7,12 +7,13 @@
     width: calc(100% - 40px);
 }
 
-    .table-header {
+    .table-header .table-row {
         background: $black;
         color: $white;
     }
 
     .table-row {
+        background: $white;
         text-align: left;
 
         &:nth-of-type(even) {

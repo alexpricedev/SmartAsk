@@ -17,7 +17,7 @@ export default class ExportButton extends React.Component {
   render() {
     return (
       <a href="#"
-         className="button mod-red"
+         className="button mod-white"
          onClick={this.exportCSV}>
         Export to .CSV
       </a>

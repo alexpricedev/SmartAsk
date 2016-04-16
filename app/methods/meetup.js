@@ -24,12 +24,31 @@ var apiCall = function (apiUrl, callback) {
 };
 
 Meteor.methods({
-  meetup_members(data) {
+  meetup_groups(apiKey) {
     // avoid blocking other method calls from the same client
     this.unblock();
 
-    var apiUrl = `https://api.meetup.com/${data.event_name}/events/${data.event_id}/rsvps?&sign=true&key=${data.api_key}&photo-host=public&fields=answers`;
+    var apiUrl = `https://api.meetup.com/self/groups?photo-host=public&page=20&omit=description&fields=self&sign=true&key=${apiKey}`;
+
     // asynchronous call to the dedicated API calling function
+    var response = Meteor.wrapAsync(apiCall)(apiUrl);
+    return response;
+  },
+
+  meetup_events(data) {
+    this.unblock();
+
+    var apiUrl = `https://api.meetup.com/${data.name}/events?&photo-host=public&page=20&status=past&omit=description&sign=true&key=${data.apiKey}`;
+
+    var response = Meteor.wrapAsync(apiCall)(apiUrl);
+    return response;
+  },
+
+  meetup_responses(data) {
+    this.unblock();
+
+    var apiUrl = `https://api.meetup.com/${data.name}/events/${data.eventId}/rsvps?&sign=true&key=${data.apiKey}&photo-host=public&fields=answers&omit=description`;
+
     var response = Meteor.wrapAsync(apiCall)(apiUrl);
     return response;
   }

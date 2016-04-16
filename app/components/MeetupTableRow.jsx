@@ -12,7 +12,7 @@ const MeetupTableRow = props => (
       <MemberImage member={props.data.member} />
     </td>
     <td className="table-row-cell">
-      <MemberAnswers answers={props.data.answers} />
+      <MemberAnswers answers={props.data.answers || []} />
     </td>
   </tr>
 );
