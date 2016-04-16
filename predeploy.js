@@ -42,6 +42,9 @@ module.exports = function(callback) {
     compileClient();
   });
 
+  var staticAssetPath = path.join(dirs.meteor, 'public/assets');
+  var staticAssetWhitelist = ['png', 'jpg', 'svg', 'eot', 'woff', 'ttf', 'woff2', 'oft'];
+
   function compileClient() {
     var clientCompiler = webpack(clientConfig);
     clientCompiler.run(function(err, stats) {
@@ -54,6 +57,11 @@ module.exports = function(callback) {
         return callback(new Error('Webpack reported compilation errors'));
       }
       ln('-sf', clientBundlePath, clientBundleLink);
+            fs.readdirSync(dirs.assets).filter(function(file) {
+                  return staticAssetWhitelist.indexOf(file.split('.').slice(-1)[0].toLowerCase()) != -1;
+            }).forEach(function(staticFile) {
+                  ln('-sf', path.join(dirs.assets, staticFile), path.join(staticAssetPath, staticFile));
+            });
       return callback();
     });
   }

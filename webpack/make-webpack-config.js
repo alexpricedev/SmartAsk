@@ -170,6 +170,9 @@ module.exports = function(options) {
 
     if (mode === 'prod') {
       config = merge.smart(config, {
+        output: {
+          publicPath: '/assets/'
+        },
         module: {
           loaders: [
             {

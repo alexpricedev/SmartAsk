@@ -36,12 +36,6 @@ function deploy() {
     break;
 
   case 'mup':
-    echo("Make sure to mup init and mup setup before first deploy");
-    /*
-     * you will also need to move settings/prod.json to settings/prod/settings.json
-     * then mup init inside settings/prod/ so that mup uses the new settings.json
-     * this will require a settings path change in ./dev script
-     */
     cd('settings/prod');
     exec('mup deploy', {async: true});
     break;
@@ -50,7 +44,7 @@ function deploy() {
     rm('-rf', 'dist/bundle');
     mkdir('-p', 'dist/bundle');
     cd(dirs.meteor);
-    exec("demeteorizer -o ../dist/bundle --json '" + cat('../settings/prod.json') + "'", {async: true});
+    exec("demeteorizer -o ../dist/bundle --json --architecture os.linux.x86_64 '" + cat('../settings/prod.json') + "'", {async: true});
     // run your own command to deploy to your server
     break;
 

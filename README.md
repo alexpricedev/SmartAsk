@@ -63,13 +63,12 @@ The site won't work until all are ready.
 
 ## Deployment
 
-The application is currently deployed to [Modulus.io](http://modulus.io) on
-Alex's account.
+The application is currently deployed to DigitalOcean using MUP.
 
-Deploy using this command when logged into the Modulus CLI and in the root dir.
+Deploy using this command when in the root dir.
 
 ```
-node deploy.js modulus
+node deploy.js mup
 ```
 
 ## Meteor Settings

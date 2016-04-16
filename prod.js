@@ -20,6 +20,9 @@ var serverBundleLink = path.join(dirs.meteor, 'server/server.bundle.min.js');
 var clientBundleLink = path.join(dirs.meteor, 'client/client.bundle.min.js');
 var loadClientBundleLink = path.join(dirs.meteor, 'client/loadClientBundle.html');
 
+var staticAssetPath = path.join(dirs.meteor, 'public/assets');
+var staticAssetWhitelist = ['png', 'jpg', 'svg', 'eot', 'woff', 'ttf', 'woff2'];
+
 exec('node core-js-custom-build.js');
 
 if (fs.existsSync(loadClientBundleLink)) rm(loadClientBundleLink);
@@ -45,6 +48,11 @@ function compileClient() {
     if (!clientBundleReady) {
       clientBundleReady = true;
       ln('-sf', clientBundlePath, clientBundleLink);
+      fs.readdirSync(dirs.assets).filter(function(file) {
+          return staticAssetWhitelist.indexOf(file.split('.').slice(-1)[0].toLowerCase()) != -1;
+      }).forEach(function(staticFile) {
+          ln('-sf', path.join(dirs.assets, staticFile), path.join(staticAssetPath, staticFile));
+      });
       runMeteor();
     }
   });
@@ -52,5 +60,5 @@ function compileClient() {
 
 function runMeteor() {
   cd(dirs.meteor);
-  exec('meteor run --production --settings ../settings/prod.json', {async: true});
+  exec('meteor run --production --settings ../settings/prod/settings.json', {async: true});
 }
