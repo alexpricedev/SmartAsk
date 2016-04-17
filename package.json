@@ -1,8 +1,8 @@
 {
-  "name": "meteor-webpack-react",
-  "version": "0.0.1",
-  "description": "A port of simple-todos to Webpack/React on the frontend",
-  "repository": "https://www.github.com/jedwards1211/meteor-webpack-react",
+  "name": "SmartAsk",
+  "version": "1.0.0",
+  "description": "A tool to help the organisers of Meetup.com groups to see the answers that attendees leave",
+  "repository": "https://github.com/alexpriceonline/SmartAsk",
   "devDependencies": {
     "babel-core": "^6.7.2",
     "babel-eslint": "^5.0.0",
@@ -57,6 +57,6 @@
     "lint": "eslint app",
     "karma": "karma start"
   },
-  "author": "",
+  "author": "Alex Price (@alexpriceonline)",
   "license": "MIT"
 }
