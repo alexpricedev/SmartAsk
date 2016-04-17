@@ -6,12 +6,14 @@ import _ from 'lodash';
 import 'scss/application.scss';
 
 import Header from './Header';
+import Intro from './Intro';
 import MeetupTable from './MeetupTable';
 import MeetupApiKeyInput from './MeetupApiKeyInput';
 import MeetupGroupsInput from './MeetupGroupsInput';
 import MeetupEventsInput from './MeetupEventsInput';
 import ResetButton from './ResetButton';
 import ExportButton from './ExportButton';
+import Footer from './Footer';
 
 export default class App extends Component {
   state = {
@@ -123,9 +125,12 @@ export default class App extends Component {
         <Header />
 
         { groups.length == 0 &&
-          <MeetupApiKeyInput
-            loading={loading}
-            getMeetupGroups={this.getMeetupGroups} />
+          <span>
+            <Intro />
+            <MeetupApiKeyInput
+              loading={loading}
+              getMeetupGroups={this.getMeetupGroups} />
+          </span>
         }
 
         { groups.length > 0 && events.length == 0 &&
@@ -149,6 +154,8 @@ export default class App extends Component {
             <MeetupTable members={responses} />
           </section>
         }
+
+        <Footer />
       </div>
     );
   }

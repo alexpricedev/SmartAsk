@@ -1,9 +1,15 @@
 import React from 'react';
 
+import APIHelpText from './APIHelpText';
+
 export default class MeetupApiKeyInput extends React.Component {
   static propTypes = {
     loading: React.PropTypes.bool.isRequired,
     getMeetupGroups: React.PropTypes.func.isRequired
+  };
+
+  state = {
+    showHelp: false
   };
 
   submitForm = (event) => {
@@ -18,16 +24,31 @@ export default class MeetupApiKeyInput extends React.Component {
     }
   }
 
+  toggleHelp = (event) => {
+    event.preventDefault();
+    this.setState({showHelp: !this.state.showHelp});
+  }
+
   render() {
     const { loading } = this.props;
+    const { showHelp } = this.state;
+
+    const cls = showHelp ? ' is-active' : '';
+    const linkTitle = showHelp ? 'Hide help text' : 'Show help text';
 
     return (
       <form className="form"
             onSubmit={this.submitForm}>
 
+        { showHelp && <APIHelpText /> }
+
         <label htmlForm="api_key"
                className="label">
           Your Meetup API key
+          <a className={`help${cls}`}
+             title={linkTitle}
+             onClick={this.toggleHelp}
+             href="#">?</a>
         </label>
 
         <input type="text"

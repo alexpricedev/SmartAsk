@@ -11,11 +11,11 @@ export default class MeetupGroupsInput extends React.Component {
     event.preventDefault();
     const { group } = event.target;
 
-    if (group.value && group.value !== 0) {
+    if (group.value && group.value !== '0') {
       this.props.getMeetupEvents(group.value);
     } else {
       // eslint-disable-next-line
-      alert('Please select an event');
+      alert('Please select a group');
     }
   }
 

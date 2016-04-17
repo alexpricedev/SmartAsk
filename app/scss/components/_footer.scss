@@ -1,0 +1,34 @@
+// ==============================================
+// Footer styles
+// ==============================================
+
+.footer {
+    text-align: center;
+}
+
+    .footer-link {
+        color: $grey;
+        font-size: 13px;
+        opacity: 0.5;
+        text-decoration: none;
+    }
+
+    .footer-link:hover,
+    .footer-link:focus {
+        opacity: 1;
+    }
+
+    .footer-link + .footer-link {
+        margin: 0 20px;
+    }
+
+        .footer-link-icon {
+            height: 13px;
+            margin: 0 6px;
+        }
+
+        .footer-link-icon.mod-github {
+            height: 20px;
+            position: relative;
+            top: 4px;
+        }

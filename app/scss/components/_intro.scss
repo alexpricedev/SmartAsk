@@ -1,0 +1,28 @@
+// ==============================================
+// Intro text styles
+// ==============================================
+
+.intro {
+    background: $white;
+    border-radius: 5px;
+    color: $black;
+    display: block;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 40px auto 0;
+    padding: 14px 20px 16px;
+    position: relative;
+    width: 84%;
+
+    @include break() {
+        max-width: 700px;
+        width: 60%;
+    }
+}
+
+    .intro-logo {
+        margin: 0 10px;
+        position: relative;
+        top: 6px;
+        width: 36px;
+    }

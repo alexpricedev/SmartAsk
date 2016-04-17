@@ -1,0 +1,64 @@
+// ==============================================
+// Help box styles
+// ==============================================
+
+.help {
+    background: $black;
+    border-radius: 99px;
+    color: $white;
+    display: inline-block;
+    font-size: 14px;
+    height: 24px;
+    line-height: 26px;
+    margin: 0 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+    width: 24px;
+}
+
+.help:hover,
+.help.is-active {
+    background: $orange;
+}
+
+.help.is-active:hover {
+    background: $black;
+}
+
+    .help-text {
+        background: $white;
+        border-radius: 5px;
+        color: $black;
+        display: block;
+        font-size: 20px;
+        line-height: 30px;
+        margin: 10px auto 16px;
+        padding: 14px 20px 16px;
+        position: relative;
+    }
+
+    .help-text::after {
+        border-color: $white transparent transparent;
+        border-style: solid;
+        border-width: 10px 10px 0;
+        bottom: -10px;
+        content: '';
+        display: none;
+        position: absolute;
+        right: 198px;
+
+        @include break() {
+            display: block;
+        }
+    }
+
+        .help-text-link {
+            border-bottom: 1px dashed $red;
+            color: $red;
+            text-decoration: none;
+        }
+
+        .help-text-link:hover {
+            border-bottom-style: solid;
+        }
