@@ -1,4 +1,4 @@
-# SmartAsk
+# [SmartAsk](http://smartask.me)
 
 **SmartAsk** is a simple tool to help the organisers of
 [Meetup.com](http://meetup.com/) groups to see the answers that attendees
