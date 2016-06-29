@@ -3,7 +3,7 @@
   "servers": [
     {
       "host": "46.101.82.3",
-      "username": "root",
+      "username": "alex",
       "pem": "~/.ssh/id_rsa"
     }
   ],
